@@ -1,0 +1,77 @@
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url = "https://repo.extendedclip.com/content/repositories/placeholderapi/" }
+    maven { url = "https://repo.dmulloy2.net/nexus/repository/public/" }
+    maven { url = "https://libraries.minecraft.net/" }
+    maven { url = "https://papermc.io/repo/repository/maven-public/" }
+    maven { url = "https://raw.githubusercontent.com/HyChrod/FriendsAPI/repository" }
+}
+
+dependencies {
+    compileOnly "org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT"
+
+    compileOnly "com.mojang:authlib:1.5.25"
+    compileOnly "io.papermc:paperlib:1.0.6"
+    compileOnly "com.gmail.filoghost.holographicdisplays:holographicdisplays-api:2.4.0"
+    compileOnly("net.luckperms:api:5.3") {
+        exclude module: "gson"
+    }
+    compileOnly "me.clip:placeholderapi:2.10.6"
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+    compileOnly "com.sk89q.worldedit:worldedit-bukkit:6.1.4-SNAPSHOT"
+    compileOnly "com.sk89q.worldguard:worldguard-bukkit:7.0.0"
+    compileOnly "net.goldentreeservers:WorldGuardExtraFlags:4.1.2-SNAPSHOT"
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.8.0-SNAPSHOT"
+    compileOnly("org.yaml:snakeyaml:1.30")
+    compileOnly group: "com.squareup.okhttp3", name: "okhttp", version: "3.14.7"
+    compileOnly(group: "com.github.cryptomorin", name: "XSeries", version: "8.7.1") {
+        exclude module: "annotations"
+    }
+    compileOnly "me.lucko:commodore:1.9"
+    compileOnly group: "com.google.guava", name: "guava", version: "29.0-jre"
+    compileOnly group: "com.github.ben-manes.caffeine", name: "caffeine", version: "2.8.5"
+    compileOnly group: "com.zaxxer", name: "HikariCP", version: "3.4.5"
+    compileOnly group: "mysql", name: "mysql-connector-java", version: "8.0.20"
+    compileOnly(project(":registry-processor"))
+    annotationProcessor(project(":registry-processor"))
+}
+
+def version = project.version
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        expand "pluginVersion": version
+        include "plugin.yml"
+    }
+}
+
+configurations {
+    shade
+    implementation.extendsFrom(shade)
+}
+
+shadowJar {
+    relocate "me.lucko.commodore", relocation("commodore")
+    relocate "org.yaml.snakeyaml", relocation("yaml")
+    relocate "com.google.gson", relocation("gson")
+    relocate "com.github.benmanes.caffeine", relocation("caffeine")
+    relocate "okhttp3", relocation("okhttp3")
+    relocate "okio", relocation("okio")
+    relocate "com.zaxxer.hikari", relocation("hikari")
+    relocate "com.mysql", relocation("mysql")
+    relocate "org.mariadb", relocation("mariadb")
+    relocate "org.postgresql", relocation("postgresql")
+    relocate "com.cryptomorin.xseries", relocation("xseries")
+    relocate "io.papermc.lib", relocation("paperlib")
+}
+
+private static String relocation(String name) {
+    return "net.spleefx.lib." + name
+}
+
+compileJava { // Preserve parameter names in the bytecode
+    options.compilerArgs += ["-parameters"]
+    options.fork = true
+    options.forkOptions.executable = "javac"
+}

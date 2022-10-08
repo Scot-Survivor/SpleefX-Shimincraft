@@ -1,0 +1,38 @@
+# The type of the power up effect. Do not touch!
+PowerupType: PlayerEffectPowerup
+
+# The name of the power up. This must be unique for every powerup.
+#
+# This power up will give the player nausea. It'll be useful in random power ups,
+# or players compulsively taking power ups :P
+Name: NauseaPowerup
+
+# The effects to give to the player when they activate the effect
+Potions:
+  - Type: nausea # Full list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XPotion.java#L62
+    Duration: 60 # in ticks, 20 ticks = 1 second
+    Amplifier: 1
+
+# The item of the power up
+#
+# Item materials list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XMaterial.java#L69
+PowerupIcon:
+  Type: oak_boat
+
+# The sound played when the power up is activated
+#
+# Full list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XSound.java#L64
+ActivatedSound: ENTITY_ARROW_HIT_PLAYER
+
+# The time in seconds in which the powerup lives after it is
+# spawned
+Timeout: 25
+
+# The time at which the power up should start blinking at
+BlinkAt: 5
+
+# The text displayed above the power up floating item
+DisplayText: "&2&lNausea"
+
+# Text to be sent to the picker once they pick up the powerup
+TextOnPick: ""

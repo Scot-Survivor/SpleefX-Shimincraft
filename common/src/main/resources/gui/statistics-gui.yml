@@ -1,0 +1,49 @@
+Menu:
+  Title: "&5{player} &0- {extension}"
+  Rows: 1.0
+  Items:
+    0:
+      Type: stone_sword
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&dGames Played"
+      Lore:
+        - "&e{games_played}"
+      ItemFlags: [ ]
+      Unbreakable: false
+    2:
+      Type: emerald_block
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&aWins"
+      Lore:
+        - "&e{wins}"
+      ItemFlags: [ ]
+      Unbreakable: false
+    4:
+      Type: redstone_block
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&cLosses"
+      Lore:
+        - "&e{losses}"
+      ItemFlags: [ ]
+      Unbreakable: false
+    6:
+      Type: iron_block
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&7Draws"
+      Lore:
+        - "&e{draws}"
+      ItemFlags: [ ]
+      Unbreakable: false
+    8:
+      Type: iron_pickaxe
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&eBlocks Mined"
+      Lore:
+        - "&e{blocks_mined}"
+      ItemFlags: [ ]
+      Unbreakable: false

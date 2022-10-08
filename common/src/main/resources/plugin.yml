@@ -1,0 +1,26 @@
+name: SpleefX
+version: ${pluginVersion}
+main: net.spleefx.SXBukkitBootstrap
+authors: [ Reflxction ]
+api-version: "1.13"
+loadbefore:
+  - EpicRename
+  - GUIShop
+  - WarpsX
+  - ShopGUIPlus
+softdepend:
+  - Vault
+  - ProtocolLib
+  - WorldEdit
+  - FastAsyncWorldEdit
+  - HolographicDisplays
+  - WorldGuard
+  - WorldGuardExtraFlags
+  - PlaceholderAPI
+  - SpleefXSQL
+  - Multiverse-Core
+  - MultiWorld
+  - PlotSquared
+  - Essentials
+  - EssentialsX
+description: A powerful, feature-rich spleef plugin

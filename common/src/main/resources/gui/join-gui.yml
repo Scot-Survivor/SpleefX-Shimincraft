@@ -1,0 +1,84 @@
+Menu:
+  Title: "&e{extension} arenas"
+  Rows: 2.0
+  StagesToDisplay:
+    - WAITING
+    - COUNTDOWN
+    - ACTIVE
+  Items:
+    WAITING:
+      Type: wool
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&e{arena_displayname}"
+      Lore:
+        - "&b{arena_playercount} &7/&d {arena_maximum}"
+        - " "
+        - "{arena_stage}"
+        - " "
+        - "&a&lClick to join!"
+      ItemFlags: [ ]
+      Color: lime
+      Unbreakable: false
+    COUNTDOWN:
+      Type: wool
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&e{arena_displayname}"
+      Lore:
+        - "&b{arena_playercount} &7/&d {arena_maximum}"
+        - " "
+        - "{arena_stage}"
+      ItemFlags: [ ]
+      Color: blue
+      Unbreakable: false
+    ACTIVE:
+      Type: wool
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&e{arena_displayname}"
+      Lore:
+        - "&b{arena_playercount} &7/&d {arena_maximum}"
+        - " "
+        - "{arena_stage}"
+        - " "
+        - "&a&lClick to spectate!"
+      ItemFlags: [ ]
+      Color: magenta
+      Unbreakable: false
+    REGENERATING:
+      Type: wool
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&e{arena_displayname}"
+      Lore:
+        - "&b{arena_playercount} &7/&d {arena_maximum}"
+        - " "
+        - "{arena_stage}"
+      ItemFlags: [ ]
+      Color: brown
+      Unbreakable: false
+    NEEDS_SETUP:
+      Type: wool
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&e{arena_displayname}"
+      Lore:
+        - "&b{arena_playercount} &7/&d {arena_maximum}"
+        - " "
+        - "{arena_stage}"
+      ItemFlags: [ ]
+      Color: gray
+      Unbreakable: false
+    DISABLED:
+      Type: wool
+      Count: 1.0
+      Enchantments: [ ]
+      DisplayName: "&e{arena_displayname}"
+      Lore:
+        - "&b{arena_playercount} &7/&d {arena_maximum}"
+        - " "
+        - "{arena_stage}"
+      ItemFlags: [ ]
+      Color: red
+      Unbreakable: false

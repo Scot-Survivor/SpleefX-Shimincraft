@@ -1,0 +1,45 @@
+# The type of the power up effect. Do not touch!
+PowerupType: SnowballBlockChangePowerup
+
+# The name of the power up. This must be unique for every powerup.
+Name: SlimeSnowballs
+
+# The special snowball item that will be given to players
+SnowballItem:
+  Type: snowball
+  DisplayName: "&aSlime Snowball"
+  Lore:
+    - ""
+    - "&aTurns nearby blocks into"
+    - "&aslime blocks"
+
+# The radius to replace in
+Radius: 1
+
+# The blocks to be replaced
+Replaced:
+  - snow_block
+
+# The block to replace with
+ReplaceWith: slime_block
+
+# The item of the power up
+#
+# Item materials list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XMaterial.java#L69
+PowerupIcon:
+  Type: slime_ball
+
+# The sound played when the power up is activated
+#
+# Full list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XSound.java#L64
+ActivatedSound: ENTITY_ARROW_HIT_PLAYER
+
+# The time in seconds in which the powerup lives after it is
+# spawned
+Timeout: 25
+
+# The time at which the power up should start blinking at
+BlinkAt: 5
+
+# The text displayed above the power up floating item
+DisplayText: "&2&lSlime Snowballs"

@@ -1,0 +1,9 @@
+rootProject.name = "SpleefX"
+
+include(
+        "registry-processor",
+        "legacy",
+        "common",
+        "modern",
+        "1_8_R3"
+)

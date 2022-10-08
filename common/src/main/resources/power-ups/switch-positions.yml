@@ -1,0 +1,29 @@
+# The type of the power up effect. Do not touch!
+PowerupType: SwitchPositionPowerup
+
+# The name of the power up. This must be unique for every powerup.
+Name: SwitchPosition
+
+# Message sent to both players who switched places
+SwitchMessage: "&aYou switched places with &e{player}&a!"
+
+# The item of the power up
+#
+# Item materials list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XMaterial.java#L69
+PowerupIcon:
+  Type: ender_pearl
+
+# The sound played when the power up is activated
+#
+# Full list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XSound.java#L64
+ActivatedSound: ENTITY_ARROW_HIT_PLAYER
+
+# The time in seconds in which the powerup lives after it is
+# spawned
+Timeout: 25
+
+# The time at which the power up should start blinking at
+BlinkAt: 5
+
+# The text displayed above the power up floating item
+DisplayText: "&5&lSwitch Positions"

@@ -1,0 +1,338 @@
+# General settings
+General:
+
+  # Should the plugin teleport players asynchronously or not?
+  #
+  # This feature can result in better performance for teleporting
+  # players and consequently loading chunks. However, this ONLY
+  # works on PaperSpigot.
+  AsyncTeleport: true
+
+# General arena settings
+Arena:
+
+  # The delay between joining and rejoining arenas. Set to 0
+  # to disable.
+  #
+  # Default value: 3
+  JoiningDelay: 3
+
+  # The update interval of the arena (in ticks). This is the interval in which the arena checks for loses, wins, etc.
+  # The less the value is, the more accurate, but (to some extent) more laggy.
+  #
+  # Default value: 20
+  # Every 1 second = 20 ticks
+  # Recommended value: 20-40
+  LoopUpdateInterval: 20
+
+  # Whether should the arena regenerate before it starts the countdown. This is recommended in case the arena was still affected after
+  # its last game was over (e.g a projectile fell in a splegg arena that was already over).
+  #
+  # Arena regeneration is exceptionally fast (can take milliseconds for very large arenas), so there is no reason to worry about the main
+  # countdown thread being blocked.
+  #
+  # Default value: true
+  # Recommended value: true
+  RegenerateBeforeGameStartsCountdown: true
+
+  # Whether should the arena cancel any damage done between team members
+  #
+  # Default value: true
+  CancelTeamDamage: true
+
+  # Whether should players be required to have an empty inventory before joining the arena.
+  #
+  # This includes the normal inventory content, as well as the player's armor slots
+  #
+  # Default value: false
+  RequireEmptyInventoryBeforeJoining: false
+
+  # Whether should players be kicked from their arenas (when it's in waiting state)
+  # when they die.
+  #
+  # For example, PlayerX is waiting in the lobby, and then a pack of spiders attack
+  # him and kill him. Setting the below to true will simulate leaving the arena.
+  KickPlayersFromArenaOnDeath: false
+
+  # Spleef melting settings
+  Melting:
+
+    # The interval (in ticks) in which if the player does not move in, a meltable block around them will turn into air
+    # The radius in which the block is selected can be changed below.
+    #
+    # Every 1 second = 20 ticks
+    # Default value: 100
+    Interval: 100
+
+    # The melting radius for spleef arenas.
+    #
+    # When a player remains in the same block for the above value of ticks, the plugin will try to turn a meltable block
+    # within this radius into air.
+    #
+    # Set to 0 to completely disable melting
+    # Default value: 5
+    Radius: 5
+
+    # Represents all the block types that can melt.
+    #
+    # Set to empty to completely disable melting
+    # Default value: ["SNOW_BLOCK"]
+    MeltableBlocks: [ "SOUL_SAND", "SNOW_BLOCK" ]
+
+    # Whether should the plugin ignore changes/movements in the X axis when checking for melting
+    IgnoreX: false
+
+    # Whether should the plugin ignore changes in the Y axis when checking for melting.
+    #
+    # For example, a player does not move forward or backward but is only jumping. If true,
+    # they will be treated as a player that is not moving at all. If false, they will be treated
+    # as a player that is moving hence no block around them will melt.
+    #
+    # Default value: true
+    IgnoreY: true
+
+    # Whether should the plugin ignore changes/movements in the Z axis when checking for melting
+    IgnoreZ: false
+
+  # The update interval of scoreboards (in ticks). This is the interval in which the content of every scoreboard
+  # is updated.
+  #
+  # Values should not exceed 20 ticks, as this will lead to timers displaying and updating incorrectly on the
+  # player's screen.
+  #
+  # Default value: 4 (8 times a second)
+  # Every 1 second = 20 ticks
+  ScoreboardUpdateInterval: 4
+
+# Timing out settings (regarding the arena's maximum time)
+TimeOut:
+
+  # Numbers in which, if the arena's time reaches, are broadcasted in order to warn people that the game is about to end
+  NumbersToWarnOn:
+    30: "&a30"
+    20: "&a20"
+    15: "&e15"
+    10: "&e10"
+    5: "&c5"
+    4: "&c4"
+    3: "&c3"
+    2: "&c2"
+    1: "&c1"
+
+# The player's game statistics
+PlayerGameStatistics:
+
+  # The string that is displayed in the statistics GUI when the player is viewing global/all-mode statistics.
+  #
+  # Default value: "&1All Modes"
+  AllModesName: "&1All Modes"
+
+  # The maximum cache size before the backend cache starts evicting entries.
+  #
+  # Unless explicitly told, or you know very well what you are doing, I'd say keep this
+  # untouched.
+  #
+  # The reasons why you may want to modify this is that you have more than 1,000 tracked player
+  # logins, and leaderboards aren't displaying certain players despite being on the top.
+  #
+  # Default value: 1000
+  MaximumCacheSize: 1000
+
+  # The storage type. Each type is cached accordingly and only requested when needed. Can be either:
+  #
+  # - JSON (Default): Store data in JSON files.
+  # - H2: Store in a H2 (SQL) database as a flat file.
+  # - MySQL: - Storing in a remote MySQL database
+  # - PostgreSQL: - Storing in a remote PostgreSQL database
+  #
+  # Values are case-insensitive.
+  #
+  # Fill the appropriate settings for the selected option. When one is selected, the settings of the other
+  # ones are ignored.
+  #
+  # IMPORTANT NOTE: CHANGING THE TYPE WILL NOT IMPORT THE DATA FROM THE OLD STORAGE TO THE NEW ONE. USE THE APPROPRIATE
+  # TOOLS TO CONVERT.
+  StorageMethod: "JSON"
+
+  # The database credentials for remote SQL
+  Database:
+
+    # The host to be used for the database. Uses the standard DB engine port by default. If you have a
+    # non-default port, specify it here using 'host:port'.
+    Host: localhost
+
+    # The name of the database to connect to
+    DatabaseName: minecraft
+
+    # The user to connect with
+    Username: root
+
+    # The password of the user
+    Password: ""
+
+    # HikariCP's properties configuration.
+    #
+    # This section is for advanced configuring for the database connection.
+    #
+    # Unless you know what you are doing, or were explicitly told to modify these,
+    # you are better off keeping these values as the default.
+    Hikari:
+
+      # The maximum lifetime of a connection in the pool
+      MaxLifetime: 120000
+
+      # The maximum size that the pool is allowed to reach, including both idle and in-use
+      # connections
+      MaxPoolSize: 10
+
+# Game countdown settings
+Countdown:
+
+  # Countdown when there are enough players to start the game
+  OnEnoughPlayers: 20
+
+  # Whether or not should the countdown be displayed in the player's experience bar
+  #
+  # Default value: true
+  DisplayOnExpBar: true
+
+  # The sound that should be played when a number is broadcasted.
+  PlaySoundOnEachBroadcast:
+
+    # Whether is the sound enabled.
+    Enabled: true
+
+    # The sound to play. Retrieve from https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+    # Beware, sounds may differ if using 1.8 - 1.8.8!
+    Sound: "BLOCK_LEVER_CLICK"
+
+    # When should the countdown be played
+    PlayWhenCountdownIs: [ 45, 30, 20, 15, 10, 5, 4, 3, 2, 1 ]
+
+# Titles on countdowns settings
+TitleOnCountdown:
+
+  # Whether should the plugin display titles when doing countdown.
+  Enabled: true
+
+  # The fade in ticks of the title
+  FadeIn: 5
+
+  # The display ticks of the title
+  Display: 10
+
+  # The fade out ticks of the title
+  FadeOut: 5
+
+  # The subtitle
+  Subtitle: ""
+
+  # Numbers to display as a title when the countdown is one of them
+  NumbersToDisplay:
+    30: "&a30"
+    20: "&a20"
+    15: "&e15"
+    10: "&e10"
+    5: "&c5"
+    4: "&c4"
+    3: "&c3"
+    2: "&c2"
+    1: "&c1"
+
+# SpleefX economy settings
+Economy:
+
+  # Whether should the plugin get the players' balance from Vault.
+  #
+  # For example, if the server uses iConomy, the plugin will use iConomy to handle coins.
+  # If it uses Essentials Economy, it will use EE to handle coins, and so on.
+  #
+  # Any economy plugin will work as long as it supports Vault hook.
+  #
+  # Default value: true
+  GetFromVault: false
+
+  # Whether should SpleefX hook into Vault, as in, SpleefX's economy becomes the one used by Vault.
+  #
+  # Note that the above setting ("GetFromVault") must be set to false for this to work.
+  HookIntoVault: false
+
+# Leaderboards settings. Note that these require loading the entire
+# player data to work correctly.
+#
+# You can tweak the "MaxCacheSize" property above to control the maximum
+# amount of profiles that can be loaded and cached by the plugin concurrently.
+#
+# Note that this section requires PlaceholderAPI
+Leaderboards:
+
+  # Whether are leaderboards enabled or not. When disabled, the plugin will not load
+  # all the player data from the database.
+  Enabled: true
+
+  # The format, in which PlaceholderAPI will replace the placeholder with.
+  #
+  # This is used in the 'format' PAPI request (see below).
+  #
+  # PAPI expression are formed like the follows:
+  # %spleefx_<statistic>_<position>:<mode or 'global'>:<request>%
+  #
+  # Example: %spleefx_wins_1:spleef:format%
+  # Example: %spleefx_wins_4:global:name%
+  #
+  # There are 4 requests through PAPI:
+  # ==
+  # name: The name of the top #n in the stat
+  # pos: The position of the top #n in the stat
+  # score: The score of the top #n in the stat
+  # format: The format below (to allow more than 1 thing in a single request)
+  # ==
+  #
+  # Inner placeholders:
+  # {pos} - The player position
+  # {player} - The player name
+  # {score} - The player's score in this stat
+  Format: "&6#{pos} &e{player} &7- &f{score}"
+
+  # Whether should the plugin attempt to patch Bukkit's offline players
+  # bug or not (Cracked servers only).
+  #
+  # Bukkit sometimes masks offline players by giving an invalid UUID
+  # or invalid name. When that happens, SpleefX leaderboards may
+  # not work correctly and could throw some errors as well.
+  #
+  # The workaround works with SpleefX requesting the player's correct name
+  # and UUID from Mojang API
+  #
+  # If this causes you any bugs, you can turn it off but may run into
+  # leaderboard issues.
+  AttemptToPatchBukkitOfflinePlayersBug: false
+
+# Whether should SpleefX attempt to hook into party plugins to provide
+# party features
+#
+# Supported party plugins:
+# - FriendsPremium
+#
+# Default value: true
+PartiesSupport: true
+
+# Power ups settings
+Powerups:
+
+  # The radius to scatter power ups around the center.
+  #
+  # Note that you can customize this per-arena using the following command:
+  # /<mode> arena settings <arena> powerupsradius <value>
+  #
+  # Default value: 15
+  ScatterRadius: 15
+
+  # The interval in seconds in which a random power up should be spawned on one of
+  # the power blocks
+  SpawnEvery: 2
+
+  # The delay (in seconds) between taking power-ups.
+  #
+  # This should make it harder to stack power-ups.
+  DelayBetweenTaking: 10

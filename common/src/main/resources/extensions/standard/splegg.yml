@@ -1,0 +1,381 @@
+Enabled: true
+Key: splegg
+DisplayName: "&2Splegg"
+ChatPrefix: "&8[&2Splegg&8] "
+PreventItemDropping: true
+GiveDroppedItems: true
+DropMinedBlocks: false
+UpgradeSystemEnabled: true
+RunCommandsForFFAWinners:
+  1:
+    PLAYER: [ ]
+    CONSOLE: [ ]
+RunCommandsForTeamsWinners:
+  1:
+    PLAYER: [ ]
+    CONSOLE: [ ]
+DoubleJump:
+  Enabled: true
+  DefaultAmount: 5.0
+  CooldownBetween: 2.0
+  PlaySoundOnJump: ENTITY_WITHER_SHOOT
+  DoubleJumpItems:
+    Enabled: true
+    Slot: 2.0
+    OnAvailable:
+      Type: feather
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&a&lDouble Jump"
+      Lore: [ ]
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: false
+    OnUnavailable:
+      Type: feather
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&c&lDouble Jump"
+      Lore: [ ]
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: false
+  LaunchVelocity:
+    X: 0.0
+    Y: 1.0
+    Z: 0.0
+    UsePlayerOriginalVector: false
+    Multiply: 1.0
+    Divide: 1.0
+    Addition: 0.0
+    Subtract: 0.0
+ProjectileItemSlot: 0.0
+ProjectileItem:
+  Type: IRON_INGOT
+  Count: 1.0
+  Enchantments:
+    - dig_speed:1
+  DisplayName: "&7Snowball Launcher"
+  Lore: [ ]
+  ItemFlags:
+    - HIDE_ENCHANTS
+  Durability: 0.0
+  Unbreakable: false
+ProjectileType: snowball
+ExplodeTNTWhenHit:
+  Enabled: true
+  CreateFire: false
+  Particles: true
+  Yield: 0.0
+  BreakBlocks: true
+  Power: 3.0
+ClickActions:
+  - LEFT_CLICK_BLOCK
+  - RIGHT_CLICK_BLOCK
+  - LEFT_CLICK_AIR
+  - RIGHT_CLICK_AIR
+Upgrades:
+  woodenShovel:
+    Key: woodenShovel
+    DisplayName: "&eWooden Shovel"
+    Delay: 1.0
+    Default: true
+    Price: 0.0
+    RequiredUpgradesBefore: [ ]
+    GameItem:
+      Slot: 0.0
+      Type: wooden_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&eWooden Shovel"
+      Lore: [ ]
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: true
+  stoneShovel:
+    Key: stoneShovel
+    DisplayName: "&7Stone Shovel"
+    Delay: 0.8
+    Default: false
+    Price: 1000.0
+    RequiredUpgradesBefore:
+      - woodenShovel
+    GameItem:
+      Slot: 0.0
+      Type: stone_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&7Stone Shovel"
+      Lore: [ ]
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: true
+  ironShovel:
+    Key: ironShovel
+    DisplayName: "&7Iron Shovel"
+    Delay: 0.6
+    Default: false
+    Price: 2000.0
+    RequiredUpgradesBefore:
+      - stoneShovel
+    GameItem:
+      Slot: 0.0
+      Type: iron_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&7Iron Shovel"
+      Lore: [ ]
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: true
+  goldenShovel:
+    Key: goldenShovel
+    DisplayName: "&6Golden Shovel"
+    Delay: 0.4
+    Default: false
+    Price: 3000.0
+    RequiredUpgradesBefore:
+      - ironShovel
+    GameItem:
+      Slot: 0.0
+      Type: golden_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&6Golden Shovel"
+      Lore: [ ]
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: true
+  diamondShovel:
+    Key: diamondShovel
+    DisplayName: "&bDiamond Shovel"
+    Delay: 0.2
+    Default: false
+    Price: 5000.0
+    RequiredUpgradesBefore:
+      - goldenShovel
+    GameItem:
+      Slot: 0.0
+      Type: diamond_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&bDiamond Shovel"
+      Lore: [ ]
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: true
+SpleggShop:
+  Title: "&2Splegg Upgrades"
+  Rows: 1.0
+  Items:
+    "0":
+      PurchaseUpgrade: woodenShovel
+      Type: wooden_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&eWooden Shovel"
+      Lore:
+        - "&eDelay: &a{upgrade_delay}"
+        - "&bPrice: &d{upgrade_price}"
+        - ""
+        - "{upgrade_purchased}"
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: false
+    2:
+      PurchaseUpgrade: stoneShovel
+      Type: stone_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&7Stone Shovel"
+      Lore:
+        - "&eDelay: &a{upgrade_delay}"
+        - "&bPrice: &d{upgrade_price}"
+        - ""
+        - "{upgrade_purchased}"
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: false
+    4:
+      PurchaseUpgrade: ironShovel
+      Type: iron_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&7Iron Shovel"
+      Lore:
+        - "&eDelay: &a{upgrade_delay}"
+        - "&bPrice: &d{upgrade_price}"
+        - ""
+        - "{upgrade_purchased}"
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: false
+    6:
+      PurchaseUpgrade: goldenShovel
+      Type: golden_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&6Golden Shovel"
+      Lore:
+        - "&eDelay: &a{upgrade_delay}"
+        - "&bPrice: &d{upgrade_price}"
+        - ""
+        - "{upgrade_purchased}"
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: false
+    8:
+      PurchaseUpgrade: diamondShovel
+      Type: diamond_shovel
+      Count: 1.0
+      Enchantments:
+        - infinity:1
+      DisplayName: "&bDiamond Shovel"
+      Lore:
+        - "&eDelay: &a{upgrade_delay}"
+        - "&bPrice: &d{upgrade_price}"
+        - ""
+        - "{upgrade_purchased}"
+      ItemFlags:
+        - HIDE_ENCHANTS
+      Unbreakable: false
+GivePotionEffects:
+  - REGENERATION:200000:4
+  - SATURATION:200000:4
+ItemsToAdd: { }
+ArmorToAdd:
+  Helmet:
+    Type: diamond_helmet
+    Count: 1.0
+    DisplayName: "{}"
+    Lore: [ ]
+    ItemFlags: [ ]
+    Unbreakable: true
+GameTitles:
+  Win:
+    Enabled: true
+    Title: "&e{winner} &1has won the game!"
+    Subtitle: ""
+    FadeInTicks: 5.0
+    DisplayTicks: 20.0
+    FadeOutTicks: 5.0
+  Draw:
+    Enabled: true
+    Title: "&7Draw!"
+    Subtitle: ""
+    FadeInTicks: 5.0
+    DisplayTicks: 20.0
+    FadeOutTicks: 5.0
+Signs:
+  - "&8[&2Splegg&8]"
+  - "&1{arena_displayname}"
+  - "&7(&9{arena_playercount}&8/&1{arena_maximum}&7)"
+  - "{arena_stage}"
+WaitingMode: ADVENTURE
+IngameMode: ADVENTURE
+CancelledDamageInWaiting:
+  - ENTITY_ATTACK
+  - BLOCK_EXPLOSION
+  - FALL
+  - FIRE
+  - FIRE_TICK
+  - PROJECTILE
+CancelledDamageInGame:
+  - ENTITY_ATTACK
+  - BLOCK_EXPLOSION
+  - FALL
+  - FIRE
+  - FIRE_TICK
+  - PROJECTILE
+ExtensionCommands:
+  - splegg
+AllowedCommands:
+  - /splegg leave
+Scoreboard:
+  WAITING_IN_LOBBY:
+    Enabled: true
+    Title: "&2&lSPLEGG"
+    Text:
+      9: ""
+      8: "Map: &a{arena_displayname}"
+      7: ""
+      6: "Players: &a{arena_playercount}/{arena_maximum}"
+      5: ""
+      4: "Waiting..."
+      2: ""
+      1: "&bwww.example.com"
+  COUNTDOWN_AND_WAITING:
+    Enabled: true
+    Title: "&2&lSPLEGG"
+    Text:
+      12: ""
+      11: "Map: &a{arena_displayname}"
+      10: ""
+      9: "Players: &a{arena_playercount}/{arena_maximum}"
+      8: ""
+      7: "Starting in &e{countdown} &fto"
+      6: "allow time for"
+      5: "additional players"
+      4: ""
+      3: "Game: &a{extension_without_colors}"
+      2: ""
+      1: "&bwww.example.com"
+  COUNTDOWN_AND_FULL:
+    Enabled: true
+    Title: "&2&lSPLEGG"
+    Text:
+      12: ""
+      11: "Map: &a{arena_displayname}"
+      10: ""
+      9: "Players: &a{arena_playercount}/{arena_maximum}"
+      8: ""
+      7: "&a&lBrace yourselves!"
+      4: ""
+      3: "Game: &a{extension_without_colors}"
+      2: ""
+      1: "&bwww.example.com"
+  GAME_ACTIVE:
+    Enabled: true
+    Title: "&2&lSPLEGG"
+    Text:
+      9: ""
+      8: "Map: &a{arena_displayname}"
+      7: ""
+      6: "Players Alive: &a{arena_alive}"
+      5: "DoubleJumps: &a{double_jumps}&7/5"
+      4: ""
+      3: "Time left: &a{arena_time_left}"
+      2: ""
+      1: "&bwww.example.com"
+QuitItem:
+  Slot: 8.0
+  Give: true
+  LeaveArena: true
+  RunCommandsByPlayer: [ ]
+  Type: MAGMA_CREAM
+  Count: 1.0
+  Enchantments: [ ]
+  DisplayName: "&cLeave"
+  Lore: [ ]
+  ItemFlags: [ ]
+  Durability: 0.0
+  Unbreakable: true
+GracePeriod:
+  Enabled: false
+  Time: 5
+RunCommandsWhenGameFills: [ ]
+RunCommandsWhenGameStarts: [ ]
+DenyOpeningContainers: true
+DenyCrafting: true
+PlayersBlockProjectiles: true

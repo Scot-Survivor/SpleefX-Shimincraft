@@ -1,0 +1,121 @@
+# Settings for the post-game summary reports sent to players.
+
+# After the game is done, send the summary in x ticks:
+#
+# 20 ticks = 1 second
+# Default value: 30 (1.5 seconds)
+SendReportIn: 30
+
+# The summary that gets sent to players.
+#
+# Each mode should get its own section. Modes with no reports/section will not get a report.
+Summary:
+  spleef:
+    - "&b&m&l--------------------------------"
+    - "                            &lSummary"
+    - " "
+    - "   &7Game statistics:"
+    - "     &e• &aTime survived: &d{time_survived}"
+    - "     &e• &aBlocks mined: &d{blocks_mined}"
+    - " "
+    - "&b&m&l--------------------------------"
+  splegg:
+    - "&b&m&l--------------------------------"
+    - "                            &lSummary"
+    - " "
+    - "   &7Game statistics:"
+    - "     &e• &aTime survived: &d{time_survived}"
+    - "     &e• &aBlocks destroyed: &d{blocks_mined}"
+    - "     &e• &aEggs shot: &d{splegg_shots}"
+    - " "
+    - "&b&m&l--------------------------------"
+  bow_spleef:
+    - "&b&m&l--------------------------------"
+    - "                            &lSummary"
+    - " "
+    - "   &7Game statistics:"
+    - "     &e• &aTime survived: &d{time_survived}"
+    - "     &e• &aBlocks hit: &d{blocks_mined}"
+    - "     &e• &aArrows shot: &d{bow_spleef_shots}"
+    - " "
+    - "&b&m&l--------------------------------"
+
+# The "remote" summary.
+#
+# This represents the game summary that gets generated to an external URL,
+# as "https://spleefx.net/stats/<a tracked game ID>".
+#
+# This summary URL is generated after each game, and sent to all players in that game.
+#
+# The remote summary contains the following information:
+# - A table of all the players, who won and who lost
+# - Overall statistics, such as the total blocks mined and total game time.
+#
+# To add a custom mode, add the mode key under the "Modes" section.
+#
+# The generated URL entirely depends on the header + player format below. Make sure
+# that the number of elements inside the 'Header' is exactly equal to the number of elements
+# inside the 'PlayerFormat', otherwise the page will render incorrectly.
+#
+# You will also notice 'BackgroundURL' which is the background image to display in the background.
+# Recommended background size: 1920x1080
+#
+# You can input multiple image URLs, in which case the it would pick randomly which image
+# to display.
+#
+# As well as "ServerIP". This will simply appear in the page right under your fancy arena name.
+RemoteSummary:
+  Enabled: true
+  ServerName: "Batman Lands"
+  ServerIP: "xxx.batmanlands.com"
+  VictoryText: VICTORY
+  EliminatedText: ELIMINATED
+  Modes:
+    # Spleef
+    spleef:
+      BackgroundURLs:
+        - "https://i.imgur.com/nHY6fOJ.png"
+      Header:
+        - ""
+        - "Player"
+        - "Blocks mined"
+        - "Time survived"
+      PlayerFormat:
+        - "{victory_or_loss}"
+        - "{player}"
+        - "{blocks_mined}"
+        - "{time_survived}"
+
+    # Bow spleef
+    bow_spleef:
+      BackgroundURLs:
+        - "https://i.imgur.com/nHY6fOJ.png" # The psuedo-batman :D
+      Header:
+        - ""
+        - "Player"
+        - "Arrows shot"
+        - "Blocks destroyed"
+        - "Time survived"
+      PlayerFormat:
+        - "{victory_or_loss}"
+        - "{player}"
+        - "{bow_spleef_shots}"
+        - "{blocks_mined}"
+        - "{time_survived}"
+
+    # Splegg
+    splegg:
+      BackgroundURLs:
+        - "https://i.imgur.com/nHY6fOJ.png" # The psuedo-batman :D
+      Header:
+        - ""
+        - "Player"
+        - "Eggs shot"
+        - "Blocks destroyed"
+        - "Time survived"
+      PlayerFormat:
+        - "{victory_or_loss}"
+        - "{player}"
+        - "{splegg_shots}"
+        - "{blocks_mined}"
+        - "{time_survived}"

@@ -1,0 +1,37 @@
+Enabled: true
+GameMode: survival
+CanGetInsidePlayers: true
+SpectatePlayerMenu:
+  Title: "&2Spectate Players"
+  PlayerHeadInfo:
+    DisplayName: "&e{player}"
+    Lore:
+      - ""
+      - "&fHealth: &a{player_health} &7HP"
+      - "&aClick to teleport!"
+SpectatingActionBar:
+  Enabled: true
+  Text: "&1Spectating &e{player}"
+SpectateItem:
+  Type: ender_portal_frame
+  Count: 1.0
+  Enchantments: [ ]
+  DisplayName: "&aSpectate Players"
+  Lore:
+    - ""
+    - "&eClick to spectate other players"
+  ItemFlags: [ ]
+  Unbreakable: false
+  Slot: 0.0
+ExitSpectatingItem:
+  Type: iron_door
+  Count: 1.0
+  Enchantments: [ ]
+  DisplayName: "&cExit Spectating"
+  Lore: [ ]
+  ItemFlags: [ ]
+  Unbreakable: false
+  Slot: 8.0
+GivePotionEffects:
+  - NIGHT_VISION:10000:2
+  - SPEED:10000:0

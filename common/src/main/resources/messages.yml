@@ -1,0 +1,299 @@
+# The prefix that comes before any message. To send a message
+# without prefix, precede it with "[noprefix]".
+Prefix: "<gray>[<aqua>Spleef</aqua><white>X</white>]</gray> "
+
+Arena:
+
+  Created: "<green>Arena <yellow>{arena}</yellow> has been created. <click:run_command:'/{command} arena settings {arena}'><bold>
+  Click here to configure it!</bold></green></click>"
+
+# Sent when an arena has been deleted
+arena-deleted: "<green>Arena <yellow>{arena}</yellow> has been deleted.</green>"
+
+# Sent when a team spawnpoint has been set
+arena-spawnpoint-set: "<green>Team {team}'s spawnpoint has been set to <yellow>{x}, {y}, {z}</yellow>.</green>"
+
+# Sent when a lobby is set
+arena-lobby-set: "<green>Arena <yellow>{arena}</yellow>'s lobby has been set to <yellow>{x}, {y}, {z}</yellow>.</green>"
+
+# Sent when attempting to build an arena with an existing key
+arena-already-exists: "<red>An arena with the key <yellow>{arena}</yellow> already exists! Remove
+ it with <yellow>/spleef arena remove {arena}</yellow>.</red>"
+
+# Sent when the player attempts to join an arena but is in one already.
+cannot-join-already-in-arena: "<red>You are already in an arena!</red>"
+
+# Broadcasted when the grace period starts
+arena-grace-period-started: "<gray>The grace period has started! You have <yellow>{time}</yellow> to spread out!</gray>"
+
+# Broadcasted when the grace period ends
+arena-grace-period-ended: "<red>The grace period is over!</red>"
+
+splegg-upgrades-not-enough-coins: "<red>You do not have enough coins to purchase this upgrade!</red>"
+splegg-upgrades-upgrade-selected: "<green>You have selected </green><yellow>{upgrade_displayname}</yellow><green>.</green>"
+splegg-gui-click-to-select: "<green>Click to select</green>"
+splegg-upgrade-must-purchase-before: "<red>You must purchase previous abilities before buying this!</red>"
+splegg-gui-click-to-purchase: "<yellow>Click to purchase</yellow>"
+splegg-gui-selected: "<green>Selected!</green>"
+splegg-upgrade-upgrade-purchased: "<green>Successfully purchased and selected </green><yellow>{upgrade_displayname}</yellow><green>!</green>"
+splegg-gui-not-enough-coins: "<red>You do not have enough coins</red>"
+
+command-invalid-arena: "<red>No arena with key </red><yellow>{arena} </yellow><red>exists!</red>"
+command-no-permission: "<red>You do not have permission to perform this command!</red>"
+command-team-not-registered: "<red>Team {team} </red><red>is not registered in arena </red><yellow>{arena}</yellow><red>. Add the team in </red><yellow>/spleef arena settings {arena}</yellow><red>.</red>"
+command-no-arenas-in-mode: "<red>This game type has no arenas!</red>"
+command-left-arena-and-lost: "<red>You left the arena and lost.</red>"
+command-not-player: "<red>You must be a player to use this command!</red>"
+command-left-arena: "<red>You left the arena.</red>"
+command-invalid-subcommand: "<red>Unrecognizable subcommand. Try </red><yellow>/{command} help</yellow><red>.</red>"
+command-invalid-usage: "<red>Invalid usage. Try </red><yellow>/{command} </yellow><aqua>{command_usage}</aqua><red>.</red>"
+command-invalid-player: "<red>Player </red><yellow>{player} </yellow><red>is offline or invalid.</red>"
+command-must-be-in-arena: "<red>You must be in an arena to use this command!</red>"
+
+player-cannot-join-arena-already-active: "<red>This arena is already active!</red>"
+player-cannot-join-arena-disabled: "<red>This arena is disabled</red>"
+player-cannot-join-arena-full: "<red>This arena is full!</red>"
+player-cannot-join-arena-not-ready: "<red>This arena is not in a playable state.</red>"
+player-cannot-join-no-available-arenas: "<red>I couldn't find an available arena for you</red>"
+player-cannot-join-arena-regenerating: "<red>Please wait while this arena regenerates.</red>"
+player-cannot-join-must-wait: "<red>You must wait before joining again!</red>"
+player-cannot-join-arena-has-no-players: "<red>No players to spectate!</red>"
+player-cannot-join-must-have-empty-inventory: "<red>You must have an empty inventory in order to join!</red>"
+
+# Appears on the URL tooltip when generating game summary
+game-summary-tooltip: "<white>Click to be taken to <aqua>https://spleefx.net</aqua>.</white>"
+game-player-wins: "{team_color}{player} <green>has won!</green>"
+game-command-not-allowed: "<red>You may not execute this command while in-game!</red>"
+game-player-joined-ffa: "<green><yellow>{player}</yellow> has joined the game!</green> <gray>(<blue>{arena_playercount}<red>/</red>{arena_maximum}</blue>)</gray>"
+game-time-over: "<gray>The game ends in {colored_number} </gray><gray>second{plural}</gray>"
+game-player-lost: "<red>{team_color}{player} </red><red>has been eliminated!</red>"
+game-player-won-ffa: "{player} <green>has won!</green>"
+game-forcibly-ending-server-stopped: "<red>The server has stopped, so the game has been forcibly ended.</red>"
+game-player-lost-ffa: "<red>{player} </red><red>has been eliminated!</red>"
+game-powerup-delay: "<red>You must wait before taking another power-up!</red>"
+game-player-joined: "<yellow>{player} </yellow><green>has joined the game - {team} Team</green><green>! </green><gray>(</gray><blue>{arena_playercount}</blue><red>/</red><blue>{arena_maximum}</blue><gray>)</gray>"
+game-countdown: "<green>Game starting in </green><yellow>{colored_number} </yellow><green>second{plural}</green>"
+game-starting: "<green>There are enough players to start the game. Starting in </green><yellow>{value} second{plural}</yellow><green>.</green>"
+game-team-eliminated: "<yellow>Team {team} </yellow><yellow>has been eliminated!</yellow>"
+game-countdown-cancelled-not-enough-players: "<yellow>There are not enough players to start the game. Countdown cancelled.</yellow>"
+game-summary-link: "<aqua>Click here to view your game statistics!</aqua>"
+
+party-not-leader: "<red>Only the party leader can join games!</red>"
+party-members-in-game: "<red>There are members of your party who are in a game!</red>"
+party-not-enough-space: "<red>There isn't enough space for your party!</red>"
+
+stage-disabled: "<red>Disabled</red>"
+stage-countdown: "<dark_blue>Starting</dark_blue>"
+stage-waiting: "<aqua>Waiting</aqua>"
+stage-needs-setup: "<red>Needs setup</red>"
+stage-regenerating: "<dark_green>Regenerating</dark_green>"
+stage-active: "<dark_red>Running</dark_red>"
+
+economy-not-enough-coins: "<red>You do not have enough coins to purchase this item!</red>"
+economy-item-already-purchased: "<red>You have already purchased this item!</red>"
+economy-cannot-activate-more-boosters: "<red>You have reached the maximum amount of boosters activated!</red>"
+economy-item-purchased: "<green>You have successfully bought {perk_displayname}</green><green>!</green>"
+economy-booster-activated: "<green>Your booster will be activated for </green><yellow>{duration}</yellow><green>.</green>"
+economy-booster-paused: "<green>This booster has been paused.</green>"
+
+bets-bet-won: "<green>You've won </green><yellow>{portion}$ </yellow><green>from the arena bets!</green>"
+bets-not-enough-money-to-bet: "<red>You are required to have at least </red><yellow>{arena_bet} </yellow><red>as a betting to join the arena.</red>"
+bets-bet-taken: "<yellow>{arena_bet}$ </yellow><green>has been taken from you as a bet</green>"
+
+Command:
+
+  # Sent when a player attempts to execute a command but has no permission
+  NoPermission: "&cYou do not have permission to perform this command!"
+
+  # Sent when a command sender is not a player when required
+  NotPlayer: "&cYou must be a player to use this command!"
+
+  # Sent when the inputted player is either offline or invalid
+  InvalidPlayer: "&cPlayer &e{player} &cis offline or invalid."
+
+  # Sent when a player runs an unknown subcommand
+  InvalidSubcommand: "&cUnrecognizable subcommand. Try &e/{command} help&c."
+
+  # Sent when attempting to set a spawnpoint for an invalid team
+  TeamNotRegistered: "&cTeam {team} &cis not registered in arena &e{arena}&c. Add
+    the team in &e/spleef arena settings {arena}&c."
+
+  # Sent when a command is executed with an invalid count of parameters
+  InvalidUsage: "&cInvalid usage. Try &e/{command} &b{command_usage}&c."
+
+  # Sent when the player attempts to execute a command that only works when they are in an arena
+  MustBeInArena: "&cYou must be in an arena to use this command!"
+
+  # Sent when a player leaves their arena
+  LeftArena: "&cYou left the arena."
+
+  # Sent when a player leaves their arena and loses
+  LeftArenaAndLost: "&cYou left the arena and lost."
+
+  # Sent in /<mode> listarenas when there are not any arenas
+  NoArenasInMode: "&cThis game type has no arenas!"
+
+  # Sent when the requested arena is invalid
+  InvalidArena: "&cNo arena with key &e{arena} &cexists!"
+Game:
+
+  # Sent when a player attempts to send a disallowed command in-game
+  CommandNotAllowed: "&cYou may not execute this command while in-game!"
+
+  # Sent to in-game players when the server stops
+  ForciblyEndingServerStopped: "&cThe server has stopped, so the game has been forcibly
+    ended."
+
+  # Broadcasted when a player leaves and the minimum player count is not met
+  CountdownCancelledNotEnoughPlayers: "&eThere are not enough players to start the
+    game. Countdown cancelled."
+
+  # Broadcasted when an arena is counting down
+  Countdown: "&aGame starting in &e{colored_number} &asecond{plural}"
+
+  # Broadcasted when the game is about to time out
+  TimeOver: "&7The game ends in {colored_number} &7second{plural}"
+
+  # Broadcasted when there are enough players to start the game
+  Starting: "&aThere are enough players to start the game. Starting in &e{value} second{plural}&a."
+
+  # Broadcasted when a player joins the arena
+  PlayerJoined: "&e{player} &ahas joined the game - {team} Team&a! &7(&9{arena_playercount}&c/&9{arena_maximum}&7)"
+
+  # Broadcasted when a team has been eliminated
+  TeamEliminated: "&eTeam {team} &ehas been eliminated!"
+
+  # Broadcasted when a player loses
+  PlayerLost: "&c{team_color}{player} &chas been eliminated!"
+
+  # Broadcasted when a player wins in a teams arena
+  PlayerWins: "{team_color}{player} &ahas won!"
+
+  # Broadcasted when a player joins the arena
+  PlayerJoinedFFA: "&e{player} &ahas joined the game! &7(&9{arena_playercount}&c/&9{arena_maximum}&7)"
+
+  # Broadcasted when a player loses
+  PlayerLostFFA: "&c{player} &chas been eliminated!"
+
+  # Broadcasted when a player wins
+  PlayerWonFFA: "{player} &ahas won!"
+
+  # Sent to players to include the game summary URL
+  GameSummaryLink: "&bClick here to view your game statistics!"
+
+  # Sent when a player has to wait before taking another power-up
+  PowerupDelay: "&cYou must wait before taking another power-up!"
+PlayerCannotJoin:
+
+  # Sent when attempting to pick a random arena but none is found
+  NoAvailableArenas: "&cI couldn't find an available arena for you"
+
+  # Sent when a player attempts to join a regenerating arena
+  ArenaRegenerating: "&cPlease wait while this arena regenerates."
+
+  # Sent when a player attempts to join an unplayable arena
+  ArenaNotReady: "&cThis arena is not in a playable state."
+
+  # Sent when a pleyer attempts to join an active arena
+  ArenaAlreadyActive: "&cThis arena is already active!"
+
+  # Sent when a pleyer attempts to join a full arena
+  ArenaFull: "&cThis arena is full!"
+
+  # Sent when a pleyer attempts to spectate an arena but it has no players
+  ArenaHasNoPlayers: "&cNo players to spectate!"
+
+  # Sent when a player attempts to join a disabled arena
+  ArenaDisabled: "&cThis arena is disabled"
+
+  # Sent when a player attempts to join with a non-empty inventory when it is required.
+  MustHaveEmptyInventory: "&cYou must have an empty inventory in order to join!"
+
+  # Sent when a pleyer attempts to join an arena but are on cooldown
+  MustWait: "&cYou must wait before joining again!"
+Stage:
+
+  # Displayed on sign when an arena is waiting for players
+  Waiting: "&bWaiting"
+
+  # Displayed on sign when an arena is counting down to start
+  Countdown: "&1Starting"
+
+  # Displayed on sign when an arena is active
+  Active: "&4Running"
+
+  # Displayed on sign when an arena is regenerating
+  Regenerating: "&2Regenerating"
+
+  # Displayed on sign when an arena has not been fully setup
+  NeedsSetup: "&cNeeds setup"
+
+  # Displayed on sign when a mode is disabled
+  Disabled: "&cDisabled"
+Bets:
+
+  # Sent to the player when they participate in an arena that takes bets
+  BetTaken: "&e{arena_bet}$ &ahas been taken from you as a bet"
+
+  # Sent when the player wins the bet (or a part of it in case of teams) from a game
+  BetWon: "&aYou've won &e{portion}$ &afrom the arena bets!"
+
+  # Sent when a player attempts to join an arena which requires betting, but does not have enough money
+  NotEnoughMoneyToBet: "&cYou are required to have at least &e{arena_bet} &cas a betting
+    to join the arena."
+Economy:
+
+  # Sent when a player activates their booster
+  BoosterActivated: "&aYour booster will be activated for &e{duration}&a."
+
+  # Sent when a player attempts to activate a booster but have already reached the max limit.
+  CannotActivateMoreBoosters: "&cYou have reached the maximum amount of boosters activated!"
+
+  # Sent when a player pauses one of their boosters
+  BoosterPaused: "&aThis booster has been paused."
+
+  # Sent when a player purchases an item successfully
+  ItemPurchased: "&aYou have successfully bought {perk_displayname}&a!"
+
+  # Sent when a player tries to purchase an item but does not have enough coins.
+  NotEnoughCoins: "&cYou do not have enough coins to purchase this item!"
+
+  # Sent when a player tries to purchase an item but they already have it.
+  ItemAlreadyPurchased: "&cYou have already purchased this item!"
+SpleggUpgrades:
+
+  # Sent when a player selects a splegg upgrade.
+  UpgradeSelected: "&aYou have selected &e{upgrade_displayname}&a."
+
+  # Sent when a player tries to purchase an upgrade but does not have enough coins.
+  NotEnoughCoins: "&cYou do not have enough coins to purchase this upgrade!"
+SpleggUpgrade:
+
+  # Sent when a player successfully purchases a splegg upgrade.
+  UpgradePurchased: "&aSuccessfully purchased and selected &e{upgrade_displayname}&a!"
+
+  # Sent when a player tries to purchase an upgrade but hasn"t unlocked the ones required first.
+  MustPurchaseBefore: "&cYou must purchase previous abilities before buying this!"
+SpleggGUI:
+
+  # Displayed on the splegg upgrades GUI when an upgrade is selected
+  Selected: "&aSelected!"
+
+  # Displayed on the splegg upgrades GUI when an upgrade is purchased but not selected
+  ClickToSelect: "&aClick to select"
+
+  # Displayed on the splegg upgrades GUI when an upgrade is purchased but not selected
+  ClickToPurchase: "&eClick to purchase"
+
+  # Displayed on the splegg upgrades GUI when an upgrade is not purchased and the user cannot select it
+  NotEnoughCoins: "&cYou do not have enough coins"
+Party:
+
+  # Sent when a party leader attempts to join a game with a party but there isn"t enough space for the party
+  NotEnoughSpace: "&cThere isn't enough space for your party!"
+
+  # Sent when a party leader attempts to join a game with a party but there are players who are in a game
+  MembersInGame: "&cThere are members of your party who are in a game!"
+
+  # Sent when a party member attempts to join a game but they are not a leader
+  NotLeader: "&cOnly the party leader can join games!"

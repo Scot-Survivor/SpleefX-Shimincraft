@@ -1,0 +1,67 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# This file contains all teams which can be inside an arena.
+# To define a new team, it must follow this template:
+#
+#  <Key>:
+#    Key: <Key>
+#    DisplayName: <Display name>
+#    Color: <Dye color>
+#    ChatColor: <Chat color>
+#    ItemOnSelectionGUI: <Material>
+#
+# - Key: A unique key. Must not be the same as any other team!
+# - DisplayName: The display name of the team. Appears on GUIs and chat messages.
+# - Color: A dye color representing this team. Can be used to change colors of leather armor worn
+#          by team members
+# - ChatColor: The chat color representing this team
+# - ItemOnSelectionGUI: The item to appear on the team selection GUI.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# The FFA team. In FFA games, all players will be put in that team.
+# Some settings below are unimportant as they will not appear
+# in FFA matches.
+FFATeam:
+  Key: ffa
+  DisplayName: "ffa"
+  Color: gray       # ignored
+  ChatColor: gray   # ignored
+  ItemOnSelectionGUI: iron_axe
+
+# All global teams. See notes in header for information on adding a new team.
+Teams:
+  Red:
+    Key: Red
+    DisplayName: "&c&lRed"
+    Color: red
+    ChatColor: red
+    ItemOnSelectionGUI: red_wool
+  Green:
+    Key: Green
+    DisplayName: "&a&lGreen"
+    Color: green
+    ChatColor: dark_green
+    ItemOnSelectionGUI: green_wool
+  Blue:
+    Key: Blue
+    DisplayName: "&9&lBlue"
+    Color: blue
+    ChatColor: blue
+    ItemOnSelectionGUI: blue_wool
+  Yellow:
+    Key: Yellow
+    DisplayName: "&e&lYellow"
+    Color: yellow
+    ChatColor: yellow
+    ItemOnSelectionGUI: yellow_wool
+  Pink:
+    Key: Pink
+    DisplayName: "&d&lPink"
+    Color: pink
+    ChatColor: light_purple
+    ItemOnSelectionGUI: pink_wool
+  Gray:
+    Key: Gray
+    DisplayName: "&8&lGray"
+    Color: gray
+    ChatColor: dark_gray
+    ItemOnSelectionGUI: gray_wool

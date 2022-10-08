@@ -1,0 +1,28 @@
+# The type of the power up effect. Do not touch!
+PowerupType: RandomPowerup
+
+# The name of the power up. This must be unique for every powerup.
+Name: RandomPowerup
+
+# The item of the power up
+#
+# Item materials list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XMaterial.java#L69
+# Head texture (see "Value" box below): https://minecraft-heads.com/custom-heads/alphabet/5656-question-mark
+PowerupIcon:
+  Type: player_head
+  TextureValue: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTM1OWQ5MTI3NzI0MmZjMDFjMzA5YWNjYjg3YjUzM2YxOTI5YmUxNzZlY2JhMmNkZTYzYmY2MzVlMDVlNjk5YiJ9fX0=
+
+# The sound played when the power up is activated
+#
+# Full list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XSound.java#L64
+ActivatedSound: ENTITY_ARROW_HIT_PLAYER
+
+# The time in seconds in which the powerup lives after it is
+# spawned
+Timeout: 25
+
+# The time at which the power up should start blinking at
+BlinkAt: 5
+
+# The text displayed above the power up floating item
+DisplayText: "&9&lRandom Powerup"

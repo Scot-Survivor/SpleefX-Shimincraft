@@ -1,0 +1,83 @@
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2' }
+    }
+}
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+def projectName = "SpleefX"
+def projectVersion = "4.9.5"
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    group = 'net.spleefx'
+    version = projectVersion
+
+    sourceCompatibility = targetCompatibility = 1.8
+
+    each { subproject -> evaluationDependsOn(subproject.path) }
+
+    ext {
+        moduleVersion = projectVersion
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
+        maven { url 'https://jitpack.io/' }
+        maven { url 'https://repo.codemc.io/repository/maven-public/' }
+    }
+
+    dependencies {
+        // Add lombok annotation processing
+        compileOnly 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+        // Add JetBrains annotations
+        compileOnly group: 'org.jetbrains', name: 'annotations', version: '20.1.0'
+
+    }
+
+    jar {
+        from '../LICENSE'
+    }
+}
+
+shadowJar {
+    dependencies {
+    }
+//    getArchiveClassifier().set('')
+}
+
+task assembleJar(type: Jar, dependsOn: subprojects.tasks['classes']) {
+    archiveBaseName.set(projectName + "-" + projectVersion)
+    for (subproject in subprojects) {
+        if (subproject.name == "registry-processor") continue
+        from subproject.configurations.archives.allArtifacts.files.collect {
+            String path = it.absolutePath.replace(projectVersion, projectVersion + "-all")
+            zipTree(path) // include all sub-projects in the final JAR
+        }
+    }
+}
+
+tasks.assembleJar.dependsOn tasks.shadowJar
+
+artifacts {
+    archives(assembleJar)
+}
