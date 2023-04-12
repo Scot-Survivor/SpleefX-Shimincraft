@@ -42,6 +42,8 @@ subprojects {
         maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
         maven { url 'https://jitpack.io/' }
         maven { url 'https://repo.codemc.io/repository/maven-public/' }
+        maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+        maven { url 'https://maven.enginehub.org/repo/' }
     }
 
     dependencies {

@@ -6,6 +6,7 @@ repositories {
     maven { url = "https://libraries.minecraft.net/" }
     maven { url = "https://papermc.io/repo/repository/maven-public/" }
     maven { url = "https://raw.githubusercontent.com/HyChrod/FriendsAPI/repository" }
+    maven { url = "https://maven.elmakers.com/repository/" }
 }
 
 dependencies {
@@ -21,7 +22,7 @@ dependencies {
     compileOnly "com.github.MilkBowl:VaultAPI:1.7"
     compileOnly "com.sk89q.worldedit:worldedit-bukkit:6.1.4-SNAPSHOT"
     compileOnly "com.sk89q.worldguard:worldguard-bukkit:7.0.0"
-    compileOnly "net.goldentreeservers:WorldGuardExtraFlags:4.1.2-SNAPSHOT"
+    // compileOnly "net.goldentreeservers:WorldGuardExtraFlags:4.1.2-SNAPSHOT"
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.8.0-SNAPSHOT"
     compileOnly("org.yaml:snakeyaml:1.30")
     compileOnly group: "com.squareup.okhttp3", name: "okhttp", version: "3.14.7"

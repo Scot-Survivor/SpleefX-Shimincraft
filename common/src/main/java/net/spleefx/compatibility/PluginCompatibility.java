@@ -4,7 +4,6 @@ import com.comphenix.protocol.wrappers.EnumWrappers.ChatType;
 import net.spleefx.compatibility.chat.ComponentJSON;
 import net.spleefx.compatibility.packet.ChatPacket;
 import net.spleefx.hook.parties.PartyHook;
-import net.spleefx.hook.worldguard.WGExtraFlagsHook;
 import net.spleefx.hook.worldguard.WorldGuardHook;
 import net.spleefx.util.plugin.Protocol;
 import org.bukkit.Bukkit;
@@ -62,9 +61,7 @@ public abstract class PluginCompatibility {
         }
 
         WorldGuardHook wg = WorldGuardHook.FALLBACK;
-        if (Bukkit.getPluginManager().isPluginEnabled("WorldGuardExtraFlags"))
-            wg = new WGExtraFlagsHook();
-        else if (Bukkit.getPluginManager().isPluginEnabled("WorldGuard"))
+        if (Bukkit.getPluginManager().isPluginEnabled("WorldGuard"))
             wg = create("net.spleefx.$lm.DefaultWorldGuardHook", () -> WorldGuardHook.FALLBACK);
         WG = wg;
         PARTIES = PartyHook.findHook();
