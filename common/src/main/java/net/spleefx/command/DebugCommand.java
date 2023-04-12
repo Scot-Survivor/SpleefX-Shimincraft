@@ -6,9 +6,7 @@ import com.google.gson.JsonObject;
 import net.spleefx.SpleefX;
 import net.spleefx.annotation.RegisteredCommand;
 import net.spleefx.backend.Schedulers;
-import net.spleefx.backend.SpleefXWebAPI;
 import net.spleefx.compatibility.PluginCompatibility;
-import net.spleefx.compatibility.chat.ComponentJSON;
 import net.spleefx.config.SpleefXConfig;
 import net.spleefx.core.command.*;
 import net.spleefx.core.command.tab.RootNode;
@@ -119,13 +117,6 @@ public class DebugCommand extends BaseCommand {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else {
-                SpleefXWebAPI.createDebug(content.toString()).thenAccept(url -> {
-                    sender.reply("&aReport generated. URL: &b" + url);
-                    if (sender.isPlayer()) {
-                        sender.reply(new ComponentJSON().append(Mson.prefixed("&a&lClick to add to your chat box").suggest(url).tooltip("Click to add.")));
-                    }
-                });
             }
         });
         return Response.ok("&aGenerating a full dump report. Please wait...");

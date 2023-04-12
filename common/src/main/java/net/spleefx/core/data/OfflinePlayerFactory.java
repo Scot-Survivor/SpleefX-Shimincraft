@@ -22,8 +22,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import lombok.ToString;
 import net.spleefx.backend.Schedulers;
-import net.spleefx.backend.SpleefXWebAPI;
 import net.spleefx.config.SpleefXConfig;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.bukkit.Bukkit;
@@ -41,6 +41,8 @@ import java.util.regex.Pattern;
  * mask the UUID or nullify the name.
  */
 public class OfflinePlayerFactory {
+
+    private static final OkHttpClient CLIENT = new OkHttpClient();
 
     /**
      * The Mojang endpoint
@@ -84,7 +86,7 @@ public class OfflinePlayerFactory {
                         .header("Content-Type", "application/json")
                         .addHeader("Accept", "application/json")
                         .build();
-                try (Response response = SpleefXWebAPI.CLIENT.newCall(request).execute()) {
+                try (Response response = CLIENT.newCall(request).execute()) {
                     if (response.isSuccessful()) {
                         String responseText = Objects.requireNonNull(response.body()).string();
                         ProfileResponse p = GSON.fromJson(responseText, ProfileResponse.class);

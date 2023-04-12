@@ -15,7 +15,6 @@ import net.spleefx.arena.type.spleef.extension.SpleefExtension;
 import net.spleefx.arena.type.splegg.extension.SpleggExtension;
 import net.spleefx.backend.PluginRegistry;
 import net.spleefx.backend.Schedulers;
-import net.spleefx.backend.SpleefXWebAPI;
 import net.spleefx.compatibility.PluginCompatibility;
 import net.spleefx.config.SpleefXConfig;
 import net.spleefx.config.TeamsConfig;
@@ -24,7 +23,6 @@ import net.spleefx.config.json.YamlFileTree;
 import net.spleefx.config.json.select.ConfigOpt;
 import net.spleefx.config.json.select.ConfigurationPack;
 import net.spleefx.config.json.select.SelectableConfiguration;
-import net.spleefx.converter.ConfigConverter;
 import net.spleefx.core.command.CommandHandler;
 import net.spleefx.core.data.PlayerRepository;
 import net.spleefx.core.data.SpleefXPAPI;
@@ -58,7 +56,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
@@ -264,32 +261,6 @@ public final class SpleefX extends Schedulers {
         statsFile.save();
         configurationPack.save();
         joinGuiFile.save();
-    }
-
-    private void checkForUpdates() {
-        info("Checking for updates...");
-        String currentVersion = plugin.getDescription().getVersion();
-        boolean isBeta = currentVersion.contains("BETA");
-        List<String> versions = SpleefXWebAPI.getVersionList();
-        int behind = versions.indexOf(plugin.getDescription().getVersion());
-        switch (behind) {
-            case -1: {
-                info("You are running an unknown version of SpleefX (" + currentVersion + "). " +
-                        (isBeta ? "Since this is a beta version, you can safely ignore this message."
-                                : "Please make sure you are using a verified version."));
-                break;
-            }
-            case 0: {
-                info("You are running the latest version of SpleefX. Woo hoo!");
-                break;
-            }
-            default:
-                info(
-                        "You are " + behind + " version" + (behind == 1 ? "" : "s") + " behind.",
-                        "Your version: " + currentVersion + ", latest: " + versions.get(0),
-                        "Update here: https://spleefx.net/spigot");
-                break;
-        }
     }
 
     public static SchematicManager newSchematicManager(String name) {
