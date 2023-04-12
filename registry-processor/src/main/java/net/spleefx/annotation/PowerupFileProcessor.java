@@ -10,6 +10,7 @@ import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic.Kind;
+import javax.tools.StandardLocation;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
@@ -20,7 +21,8 @@ import java.util.stream.Stream;
 
 public class PowerupFileProcessor extends AbstractProcessor {
 
-    private static final File POWERUPS = new File("D:\\Java\\SpleefX_\\common\\src\\main\\resources\\power-ups");
+    // private final File POWERUPS = new File(((ProcessingEnvironment) processingEnv).getFiler().getResource(StandardLocation.CLASS_OUTPUT,
+    //        "", "power-ups").toUri().resolve(".").getPath());
 
     private static final Set<String> TYPES = Stream
             .of(Scan.class)
@@ -29,12 +31,20 @@ public class PowerupFileProcessor extends AbstractProcessor {
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
+        File powerUps = null;
+        try {
+            powerUps = new File(((ProcessingEnvironment) processingEnv).getFiler().getResource(StandardLocation.CLASS_OUTPUT,
+                    "", "power-ups").toUri().resolve(".").getPath());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        if (!powerUps.exists() || !powerUps.isDirectory()) throw new RuntimeException("Powerups folder not found!");
         Filer filer = processingEnv.getFiler();
         Messager messager = processingEnv.getMessager();
         TypeSpec.Builder generated = TypeSpec.classBuilder("_GeneratedPowerupsFilesList").addModifiers(Modifier.PUBLIC, Modifier.FINAL);
 
         StringJoiner files = new StringJoiner("\", \"", "\"", "\"").setEmptyValue("");
-        for (File file : Objects.requireNonNull(POWERUPS.listFiles())) {
+        for (File file : Objects.requireNonNull(powerUps.listFiles())) {
             if (file.getName().endsWith(".yml") || file.getName().endsWith(".schem")) {
                 files.add("power-ups/" + file.getName());
                 messager.printMessage(Kind.NOTE, file.getAbsolutePath());

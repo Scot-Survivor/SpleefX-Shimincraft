@@ -1,0 +1,37 @@
+# The type of the power up effect. Do not touch!
+PowerupType: SplashPotionPowerup
+
+# The name of the power up. This must be unique for every powerup.
+#
+# When taken, a random player will receive nausea.
+Name: SlownessSplash
+
+# The effects to give to the player when they activate the effect
+Potions:
+  - Type: slowness # Full list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XPotion.java#L62
+    Duration: 60 # in ticks, 20 ticks = 1 second
+    Amplifier: 0
+
+# The item of the power up
+#
+# Item materials list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XMaterial.java#L69
+PowerupIcon:
+  Type: splash_potion
+
+# The sound played when the power up is activated
+#
+# Full list: https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XSound.java#L64
+ActivatedSound: ENTITY_ARROW_HIT_PLAYER
+
+# The time in seconds in which the powerup lives after it is
+# spawned
+Timeout: 25
+
+# The time at which the power up should start blinking at
+BlinkAt: 5
+
+# The text displayed above the power up floating item
+DisplayText: "&8&lSlowness Splash"
+
+# Text to be sent to the picker once they pick up the powerup
+TextOnPick: ""
