@@ -283,6 +283,7 @@ public abstract class AbstractArenaEngine extends ReloadedArenaEngine {
 
     @Deprecated
     @Override public void playerSpectate(@NotNull MatchPlayer player, @NotNull SpectatingCause cause) {
+        if (this.getStage() != ArenaStage.ACTIVE) return;
         spectators.add(player);
         Spectating.on(player);
         if (cause == SpectatingCause.DIED) {
